@@ -2,25 +2,26 @@
 
 // chart.js - exemplo de grafico
 header('Cache-Control: no-cache');
+header('Access-Control-Allow-Origin: *');
 header('Content-type: application/json; charset="utf-8"', true);
 
-$municipio = $_POST['municipio'];
-$local = $_POST['praia'];
-$ano = $_POST['ano'];
+$city = $_POST['city'];
+$local = $_POST['local'];
+$year = $_POST['year'];
+$beach = str_replace(' ', '_', strtolower($_POST['beach']));
 
 $layout = curl_init();
 
 curl_setopt($layout, CURLOPT_URL,'https://balneabilidade.ima.sc.gov.br/relatorio/historico');
 curl_setopt($layout, CURLOPT_POST, 1);
 curl_setopt($layout, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($layout, CURLOPT_POSTFIELDS,'municipioID='. $municipio .'&localID='. $local .'&ano='. $ano .'&redirect=true');
+curl_setopt($layout, CURLOPT_POSTFIELDS,'municipioID='. $city .'&localID='. $local .'&ano='. $year .'&redirect=true');
 curl_setopt($layout, CURLOPT_SSL_VERIFYHOST, false);
 curl_setopt($layout, CURLOPT_SSL_VERIFYPEER, false);
 
 $response = curl_exec($layout);
 $doc = new DOMDocument();
 $doc->loadHTML($response);
-
 $tables = $doc->getElementsByTagName('table');
 
 $bathings = [];
@@ -60,3 +61,15 @@ foreach ($tables as $key => $table) {
 }
 
 echo json_encode(array_filter($bathings));
+
+/** script para criar arquivo em formato html com o nome da praia selecionada */
+$html = $response;
+$file_html = fopen('assets/file-beach/html/'. $beach .'.html', 'w');
+fwrite($file_html, $html);
+fclose($file_html);
+
+/** script para criar arquivo em formato json com o nome da praia selecionada */
+$json = json_encode(array_filter($bathings), JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+$file_json = fopen('assets/file-beach/json/'. $beach .'.json', 'a');
+fwrite($file_json, $json);
+fclose($file_json);

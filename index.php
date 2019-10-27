@@ -3,10 +3,10 @@
     <head>
         <meta charset="UTF-8">
         <meta name="author" content="Rodrigo Pereira">
-        <meta name="description" content="IMA - BOOTSTRAP FRAMEWORK FRONT-END -">
+        <meta name="description" content="IMA - GRAFICOS DE BALNEABILIDADE -">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>IMA - BOOTSTRAP FRAMEWORK FRONT-END -</title>
+        <title>IMA - GRAFICOS DE BALNEABILIDADE -</title>
         <link rel="stylesheet" href="assets/css/fontawesome.css">
         <link rel="stylesheet" href="assets/css/bootstrap.min.css">
         <link rel="stylesheet" href="assets/css/style.css">
@@ -53,11 +53,13 @@
                 if ($('#ima').val() != '') {
                     var ima = $('#ima').val();
                     var dados = ima.split('-');
+                    var beach = $('#ima').find(':selected').text();
+
                     $.ajax({
                         url: "ima.php",
                         async: true,
                         type: "POST",
-                        data: { 'municipio': dados[0], 'praia': dados[1], 'ano': dados[2] },
+                        data: { 'city': dados[0], 'local': dados[1], 'year': dados[2], 'beach': beach },
                         cache: false,
                         dataType: "json",
                         crossDomain: true,
@@ -118,6 +120,8 @@
                                     }
                                 }
                             });
+
+                            alert('Arquivo criado em formato .json');
                         },
                         error:function(jqXHR, textStatus, errorThrown) {
                             alert('Erro ao carregar');
