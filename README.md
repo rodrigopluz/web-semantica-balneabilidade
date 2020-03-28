@@ -1,6 +1,6 @@
 ![version](https://img.shields.io/badge/version-1.0.0-blue.svg) 
 [![license](https://img.shields.io/apm/l/vim-mode.svg)](LICENSE)
-[![Build Status](https://api.travis-ci.org/cakephp/app.png)](https://travis-ci.org/cakephp/app)
+[![Build Status](https://api.travis-ci.org/cakephp/app.png)]
 
 # Web Semantica - Balneabilidade IMA
 
