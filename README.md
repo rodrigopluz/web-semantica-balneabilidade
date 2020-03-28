@@ -1,3 +1,10 @@
+![version](https://img.shields.io/badge/version-1.0.0-blue.svg) 
+[![license](https://img.shields.io/apm/l/vim-mode.svg)](LICENSE)
+
+[![Build Status](https://api.travis-ci.org/cakephp/app.png)](https://travis-ci.org/cakephp/app)
+[![License](https://poser.pugx.org/cakephp/app/license.svg)](https://packagist.org/packages/cakephp/app)
+
+
 # Web Semantica - Balneabilidade IMA
 
 Usado FrameWorks Front-End **Bootstrap**
@@ -30,8 +37,17 @@ ponto para banhar-se, levando-se em conta a qualidade da água.
 **Autores do Trabalho**
 - ALEXANDRE MORAES DE PAULA
 - FELIPE DRECHSLER
-- RODRIGO PEREIRA DA LUZ
 
-[![Build Status](https://api.travis-ci.org/cakephp/app.png)](https://travis-ci.org/cakephp/app)
-[![License](https://poser.pugx.org/cakephp/app/license.svg)](https://packagist.org/packages/cakephp/app)
+<table>
+  <tr>
+    <td>
+      <img src="https://avatars2.githubusercontent.com/u/8739638?s=460&v=4" width="100">
+    </td>
+    <td>
+      :octocat: Rodrigo Pereira<br />
+      <a href="mailto:rodrigopluz@gmail.com">:point_right: rodrigopluz@gmail.com</a><br />
+    </td>
+  </tr>
+</table>
+
 
